@@ -1,0 +1,21 @@
+<section class="heading-section">
+    <h1>To-do List</h1>
+</section>
+<form class="todo-form" [formGroup]="form" (submit)="onSubmit()">
+    <div class="container">
+        <div class="add-todo-box">
+            <h2>New to-do</h2>
+            <div class="control">
+                <input type="text" class="input" #task formControlName="test">
+                <button  type="submit" (click)="addTask(task.value)" [disabled]="form.invalid">Add</button>
+            </div>
+
+            <div class="tasks">
+                <ul *ngFor="let item of list">
+                    <input type="checkbox">{{item.name}}
+                    <button (click)="removeTask(item.id)">Remove</button>
+                </ul>
+            </div>
+        </div>
+    </div>
+</form>
